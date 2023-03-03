@@ -104,7 +104,8 @@ output$table <- renderDataTable({
   data %>% 
     filter(region %in% input$region) %>% 
     group_by(region) %>% 
-    summarise(mean(temp))
+    summarise(min(temp),
+              max(temp)) 
 })
 
 output$obs2 <- renderPrint({
